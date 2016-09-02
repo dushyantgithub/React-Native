@@ -1,0 +1,34 @@
+.container {
+  background-color: #81D4FA;
+  text-align: center;
+  color: grey;
+}
+.formInput {
+    height: 60px;
+    font-size: 20px;
+    border: 1px solid #bcbcbc;
+    color: grey;
+}
+.saved {
+    font-size: 20px;
+    text-align: center;
+    color: grey;
+}
+.instructions {
+    text-align: center;
+    color: grey;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.OpttionChoose {
+  margin-top: 10px;
+}
+.OnOff {
+  width: 75px;
+}
+.OnOffSwitches {
+  height: 60px;
+  padding-top: 20px;
+  flex: 1;
+  flex-direction: row;
+}

@@ -1,34 +1,84 @@
 .container {
-  background-color: #81D4FA;
+  background-color: #607D8B;
   text-align: center;
-  color: grey;
+  color: white;
 }
 .formInput {
-    height: 60px;
-    font-size: 20px;
     border: 1px solid #bcbcbc;
-    color: grey;
+    color: white;
+    text-align: center;
 }
 .saved {
-    font-size: 20px;
     text-align: center;
-    color: grey;
+    color: white;
 }
-.instructions {
-    text-align: center;
-    color: grey;
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-.OpttionChoose {
-  margin-top: 10px;
-}
+
+
 .OnOff {
-  width: 75px;
+  width: 90px;
+  align-items: center;
+  padding-top: 5px;
+  background-color: rgba(178, 223, 219, 0.3);
+
 }
 .OnOffSwitches {
   height: 60px;
   padding-top: 20px;
-  flex: 1;
   flex-direction: row;
+}
+.TapPortion {
+  height: 100px;
+  width: 100%;
+  flex-direction: row;
+}
+.Tap1 {
+height: 100px;
+width: 180px;
+background-color: #04bbcd;
+opacity: 0.5;
+}
+.Tap2 {
+  height: 100px;
+  width: 180px;
+  background-color: #00E5FF;
+  opacity: 0.5;
+}
+.OpttionChoose {
+  height: 100px;
+  padding-top: 40px;
+}
+.output1 {
+  height: 100px;
+  padding-top: 40px;
+  text-align: center;
+}
+.Portion2 {
+  height: 150px;
+  padding-top: 10px;
+  text-align: center;
+}
+.text1 {
+  height: 20px;
+  text-align: center;
+}
+.pickervalue {
+  height: 100px;
+  flex-direction: row;
+}
+.leftalign {
+  height: 100px;
+  width: 100px;
+  background-color: #04bbcd;
+  opacity: 0.5;
+  padding-top: 40px;
+  text-align: center;
+}
+.rightalign {
+  height: 100px;
+  width: 260px;
+  background-color: #00E5FF;
+  opacity: 0.5;
+  font-size: 40px;
+  padding-top: 25px;
+  text-align: center;
 }

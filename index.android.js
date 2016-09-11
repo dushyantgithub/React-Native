@@ -31,6 +31,7 @@ for (var i=0;i < 5; i++)
 
   }
 }
+var savePicker = [];
 
 
 var Application = React.createClass({
@@ -39,31 +40,36 @@ var Application = React.createClass({
       AsyncStorage.getItem("saveValue").then((value) => {
           this.setState({"savedValue": value});
       }).done();
+      AsyncStorage.getItem("savePicker").then((value) => {
+          this.setState({"savedPicker": value});
+      }).done();
+      AsyncStorage.getItem("savePicker2").then((value) => {
+          this.setState({"savedPicker2": value});
+      }).done();
     },
 
     getInitialState: function(){
     return({
 
     });
-    AsyncStorage.getItem("saveValue").then((value) => {
-        this.setState({"savedValue": value});
-    }).done();
+
 
     this.state = {
       trueSwitchIsOn: true,
       falseSwitchIsOn: false,
-      display: false
+      display: false,
+      stateofpicker: false
     };
+
 },
 
 onPressHandle: function(){
     this.picker.toggle();
   },
   onState: function(value){
-    this.setState({falseSwitchIsOn: value, display: true});
-      this.picker3.toggle();
+    this.setState({falseSwitchIsOn: value, display: true,});
+    this.picker3.toggle();
     },
-
 
 
 
@@ -73,25 +79,33 @@ onPressHandle: function(){
     <View style={styles.container}>
 
       <View style={{height: Dimensions.get('window').height}}>
-
+        <View style={styles.TapPortion}>
+        <View style={styles.Tap1}>
             <TouchableOpacity style={styles.OpttionChoose} onPress={this.onPressHandle.bind(this)}>
-					        <Text style={styles.saved}>Please Choose Option 1</Text>
+					        <Text style={styles.saved}>Tap to Select</Text>
 				    </TouchableOpacity>
-
-
-
-            <Text style={styles.saved}>
-                {this.state.saveValue}
+        </View>
+        <View style={styles.Tap2}>
+            <Text style={styles.output1}>
+                Selection: {this.state.savedPicker}
             </Text>
-            <View>
+        </View>
+      </View>
+      <View style={styles.Portion2}>
+        <View style={styles.text1}>
+            <Text style={styles.saved}>
+                {this.state.savedValue}
+            </Text>
+        </View>
                 <TextInput
                     style={styles.formInput}
                     onChangeText={(text) => this.saveData(text)}
                     value={this.state.savedValue} />
-            </View>
-            <Text style={styles.instructions}>
-                Type to Test
+
+                  <Text style={styles.saved}>
+                Type above to Test
             </Text>
+      </View>
 <View style={styles.OnOffSwitches}>
         <View style={styles.OnOff}>
           <Switch
@@ -127,15 +141,23 @@ onPressHandle: function(){
           tintColor="#ff0000"
           value={this.state.trueSwitchIsOn2} />
         </View>
-          </View>
 
+          </View>
+<View style={styles.pickervalue}>
+  <Text style={styles.leftalign}>
+      Selection:
+  </Text>
+  <Text style={styles.rightalign}>
+{this.state.savedPicker2}
+  </Text>
+</View>
           <Picker
             ref={picker3 => this.picker3 = picker3}
             style={{height: 320}}
             showDuration={300}
             pickerData={loop}
             selectedValue={selectedValues}
-            onPickerDone={(pickedValue) => {}}
+            onPickerDone={(text) => {this.saveData2(text)}}
             />
 
            <Picker
@@ -143,8 +165,8 @@ onPressHandle: function(){
 	          style={{height: 320}}
 	          showDuration={300}
 	          pickerData={Data3}
-            selectedValue={selectedValues3}
-	          onPickerDone={(pickedValue) => {}}
+            selectedValue={savePicker}
+	          onPickerDone={(text) => {this.saveData1(text)}}
 				    />
 
 
@@ -158,6 +180,22 @@ onPressHandle: function(){
     saveData: function(value) {
         AsyncStorage.setItem("saveValue", value);
         this.setState({"savedValue": value});
+
+        AsyncStorage.setItem("savePicker", pickedValue);
+        this.setState({"savedPicker": pickedValue});
+
+    },
+    saveData1: function(value) {
+
+        AsyncStorage.setItem("savePicker", value);
+        this.setState({"savedPicker": value});
+
+    },
+    saveData2: function(value) {
+
+        AsyncStorage.setItem("savePicker2", value);
+        this.setState({"savedPicker2": value});
+
     }
 
 });

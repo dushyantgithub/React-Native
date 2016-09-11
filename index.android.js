@@ -90,9 +90,7 @@ onPressHandle: function(){
                     value={this.state.savedValue} />
             </View>
             <Text style={styles.instructions}>
-                Type something into the text box.  It will be saved to
-                device storage.  Next time you open the application, the saved data
-                will still exist.
+                Type to Test
             </Text>
 <View style={styles.OnOffSwitches}>
         <View style={styles.OnOff}>
